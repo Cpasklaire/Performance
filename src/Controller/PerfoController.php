@@ -17,8 +17,6 @@ class PerfoController extends AbstractController
     #[Route('/perfo', name: 'long_script')]
     public function script(): Response
     {
-        $start = microtime(true);
-
         sleep(100);
 
         /*Ce que je voudrais
@@ -30,13 +28,6 @@ class PerfoController extends AbstractController
         serveur RabbitMQ : https://medium.com/@404sd/how-to-send-notification-asynchronously-using-symfony-rabbitmq-43e3077e9b36
          */
 
-        $end = microtime(true);
-        $temps = $end - $start;
-        $response = new Response();
-        $response->setContent('Le script a pris ' . $temps . ' secondes.');
-
-        return $this->render('perfo/index.html.twig', [
-            'temps' => $response,
-        ]);
+        return $this->render('perfo/index.html.twig');
     }
 }

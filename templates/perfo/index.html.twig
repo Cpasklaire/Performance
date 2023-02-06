@@ -10,7 +10,7 @@
             startScriptButton.addEventListener("click", function() {
                 axios.get("{{ path('long_script') }}")
                 .then(function (response) {
-                    document.getElementById("script-result").innerHTML = "Le script a pris " + response.temps + " secondes.";
+                    document.getElementById("script-result").innerHTML = "script fini";
                 })
                 .catch(function (error) {
                     console.error(error);
